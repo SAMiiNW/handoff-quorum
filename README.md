@@ -33,3 +33,9 @@ python -m pytest -q
 ```
 
 The direct suite runs successful custody, unauthorized acceptance, timeout recovery, observer intervention, and a forged missing-index result. Deployment coordinates are intentionally absent until reviewed source, wallet, network run, and public build agree.
+
+## Cleared route
+
+`StudioNet / 0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD`
+
+The technical manifest `LIVE-1789758397` travelled through offer, successor acceptance, validator verification, and activation. All four transactions finalized with majority agreement and successful execution. Inspect the [contract](https://explorer-studio.genlayer.com/address/0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD) or open the [public conveyor](https://samiinw.github.io/handoff-quorum/).
