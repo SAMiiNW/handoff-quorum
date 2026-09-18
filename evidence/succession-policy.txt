@@ -1,0 +1,4 @@
+HANDOFF QUORUM TECHNICAL FIXTURE / POLICY
+A production successor must receive signing authority, open-incident context, and tested rollback access.
+Activation is permitted only after explicit successor acceptance and evidence review.
+An independent observer may block activation when a critical dependency remains unresolved.

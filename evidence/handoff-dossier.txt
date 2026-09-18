@@ -1,0 +1,5 @@
+HANDOFF QUORUM TECHNICAL FIXTURE / DOSSIER
+Successor receives production signing authority through a dedicated hardware key.
+Open incidents HQ-17 and HQ-22 are listed with current owners and next actions.
+Rollback access is tested against release 4.2 and assigned to the successor.
+This operator-created record exists only for deterministic network verification.
