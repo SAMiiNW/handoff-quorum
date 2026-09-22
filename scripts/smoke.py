@@ -18,9 +18,14 @@ def account(slot):
 
 def finalized(client, method, args):
     tx = client.write_contract(address=ADDRESS, function_name=method, args=args, value=0)
-    receipt = client.wait_for_transaction_receipt(transaction_hash=tx, wait_until="finalized", retries=180, interval=5000, full_transaction=True)
+    print(method + "_tx=" + str(tx), flush=True)
+    try:
+        receipt = client.wait_for_transaction_receipt(transaction_hash=tx, wait_until="finalized", retries=180, interval=5000, full_transaction=True)
+    except TypeError:
+        receipt = client.wait_for_transaction_receipt(transaction_hash=tx, status="FINALIZED", retries=180, interval=5000, full_transaction=True)
     assert "MAJORITY_AGREE" in str(receipt.get("result_name", "")).upper()
     leader = ((receipt.get("consensus_data", {}).get("leader_receipt") or [{}])[0]).get("execution_result")
+    print(json.dumps({"method": method, "result": str(receipt.get("result_name")), "leaderExecution": str(leader), "leader": (receipt.get("consensus_data", {}).get("leader_receipt") or [{}])[0]}, default=str), flush=True)
     assert str(leader).upper() == "SUCCESS"
     return str(tx)
 
@@ -28,9 +33,9 @@ def finalized(client, method, args):
 incumbent, successor, observer = account(1), account(2), account(3)
 clients = [create_client(chain=studionet, account=x) for x in (incumbent, successor, observer)]
 record = "LIVE-" + str(int(time.time()))
-dossier = "https://raw.githubusercontent.com/SAMiiNW/handoff-quorum/222e2c9/evidence/live-dossier.txt"
-policy = "https://raw.githubusercontent.com/SAMiiNW/handoff-quorum/222e2c9/evidence/live-policy.txt"
-gap = "https://raw.githubusercontent.com/SAMiiNW/handoff-quorum/222e2c9/evidence/live-observer-gap.txt"
+dossier = "https://raw.githubusercontent.com/SAMiiNW/handoff-quorum/c43e637/evidence/live-dossier.txt"
+policy = "https://cdn.jsdelivr.net/gh/SAMiiNW/handoff-quorum@c43e637/evidence/live-policy.txt"
+gap = "https://api.github.com/repos/SAMiiNW/handoff-quorum/contents/evidence/live-observer-gap.txt?ref=c43e637"
 transactions = {}
 transactions["open"] = finalized(clients[0], "open_handoff", [record, "Technical succession evidence review", successor.address, observer.address, ["Document deployment rollback procedure", "Inventory unresolved incidents", "Identify production change approvals"], dossier, policy, 600, 600])
 transactions["accept"] = finalized(clients[1], "accept", [record])

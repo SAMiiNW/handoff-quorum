@@ -55,10 +55,10 @@
       <p class="status" id="status">STUDIONET CONTRACT LIVE · READY FOR WALLET</p><pre id="record">Load a handoff ID to inspect its custody record.</pre>
     </section>
   </main>
-  <footer><span>Evidence-bound operational succession</span><a id="explorer" href="https://explorer-studio.genlayer.com/address/0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD" target="_blank" rel="noreferrer">OPEN CONTRACT IN EXPLORER ↗</a></footer>
+  <footer><span>Evidence-bound technical succession record</span><a id="explorer" href="https://explorer-studio.genlayer.com/address/0x94781DA4710C6fbf08FB4A3A641CA6DD1f968077" target="_blank" rel="noreferrer">OPEN CONTRACT IN EXPLORER ↗</a></footer>
   <script type="module">
     import{createClient}from'https://esm.sh/genlayer-js@1.1.8';import{studionet}from'https://esm.sh/genlayer-js@1.1.8/chains';
-    const $=s=>document.querySelector(s),ADDRESS='0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD';let client,step=1;
+    const $=s=>document.querySelector(s),ADDRESS='0x94781DA4710C6fbf08FB4A3A641CA6DD1f968077';let client,step=1;
     const setStatus=t=>$('#status').textContent=t;
     function showStep(n){step=Math.max(1,Math.min(4,n));document.querySelectorAll('[data-step]').forEach(x=>x.classList.toggle('active',Number(x.dataset.step)===step));$('#progressText').textContent=`STEP ${step} / 4`;$('#progressBar').style.width=`${step*25}%`;if(step===4){$('#reviewIdentity').textContent=`${$('#hid').value||'—'} · ${$('#title').value||'Untitled'}`;$('#reviewRoles').textContent=`Successor ${($('#successor').value||'—').slice(0,12)}… · observer ${($('#observer').value||'—').slice(0,12)}…`;$('#reviewLoad').textContent=`${dependencies().length} dependencies · ${Number($('#reviewWindow').value||0)}s review then ${Number($('#window').value||0)}s activation`}}
     function dependencies(){return $('#dependencies').value.split('\n').map(x=>x.trim()).filter(Boolean)}
