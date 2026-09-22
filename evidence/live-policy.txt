@@ -1,0 +1,1 @@
+Technical evidence is complete only when every indexed dependency has concrete, reviewable documentation. Review completion never represents possession of credentials, system access, signing keys, legal authority, or operational control. The independent observer may block the record during the stored review window when a material technical dependency remains unresolved.

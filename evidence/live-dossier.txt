@@ -1,0 +1,4 @@
+Deployment rollback procedure: the successor must publish the tested rollback command, expected recovery time, and owner of each rollback checkpoint.
+Unresolved incidents: the succession packet must list every open incident with its current severity, responsible responder, and next review time.
+Production change approvals: each planned change must identify its technical approver and the immutable change record used during review.
+This dossier documents evidence coverage only. It does not transfer credentials, signing keys, access, legal authority, or operational control.

@@ -1,0 +1,1 @@
+Material observer finding: the submitted rollback section names a procedure but does not include a successful production-like restoration record for the current release. Treat the rollback dependency as unresolved until that independent execution evidence is attached.
