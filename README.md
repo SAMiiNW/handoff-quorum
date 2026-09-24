@@ -34,8 +34,8 @@ python -m pytest -q
 
 The direct suite covers the finalize-versus-block boundary, changing source bytes between open and verify, validator disagreement, unauthorized acceptance, timeout recovery, and revisions from every failure state. `requirements-dev.txt` pins the test tools and `tox.ini` reproduces lint, direct tests, and interface checks.
 
-## Cleared route
+## Observer-blocked route
 
-`StudioNet / 0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD`
+`StudioNet / 0x94781DA4710C6fbf08FB4A3A641CA6DD1f968077`
 
-The technical manifest `LIVE-1789758397` travelled through offer, successor acceptance, validator verification, and activation. All four transactions finalized with majority agreement and successful execution. Inspect the [contract](https://explorer-studio.genlayer.com/address/0x9e3A9305fE74d40DA07728bFc22A89c61B221aFD) or open the [public conveyor](https://samiinw.github.io/handoff-quorum/).
+The technical manifest `LIVE-1790111455` travelled through offer, successor acceptance, validator verification, and the observer response window. The designated observer then submitted material gap evidence, producing the final `BLOCKED` state. All four writes finalized with majority agreement and successful execution. This demonstrates the repaired race boundary without claiming that the demo wallets are independent authorities. Inspect the [contract](https://explorer-studio.genlayer.com/address/0x94781DA4710C6fbf08FB4A3A641CA6DD1f968077), review the transaction hashes in `evidence/network-run.json`, or open the [public conveyor](https://samiinw.github.io/handoff-quorum/).
